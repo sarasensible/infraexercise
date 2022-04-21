@@ -1,4 +1,4 @@
-resource "kubernetes_namespace" "this" {
+resource "kubernetes_namespace" "monitoring" {
   metadata {
     name = "monitoring"
   }
@@ -11,7 +11,7 @@ resource "kubernetes_namespace" "sre" {
 }
 
 resource "helm_release" "monitoring" {
-  depends_on = [kubernetes_namespace.this]
+  depends_on = [kubernetes_namespace.monitoring]
   name = "stack"
   repository = "https://grafana.github.io/helm-charts"
   chart = "loki-stack"

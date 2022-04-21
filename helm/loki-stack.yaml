@@ -1,0 +1,13 @@
+grafana:
+  enabled: true
+
+promtail:
+  enabled: true
+  config:
+    lokiAddress: http://stack-loki:3100/loki/api/v1/push
+
+prometheus:
+  enabled: true
+  isDefault: false
+  nodeExporter:
+    hostRootfs: false
